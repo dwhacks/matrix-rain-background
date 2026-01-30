@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Rain - Background Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #000;
+            font-family: 'Courier New', monospace;
+        }
+        
+        #matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            max-width: 600px;
+            margin: 5rem auto;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .theme-badge {
+            display: inline-block;
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid #00ff00;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: #00ff00;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: 1px solid #00ff00;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Full Demo</a>
+    
+    <canvas id="matrix-rain"></canvas>
+    
+    <div class="content">
+        <h1>Matrix Rain Background</h1>
+        <p>This demonstrates the Matrix rain effect as a full-page background. The effect runs automatically with optimized settings for background use.</p>
+        
+        <div class="demo-info">
+            <h3>Current Settings</h3>
+            <div class="theme-badge">Theme: Matrix Lite (Performance)</div>
+            <div class="theme-badge">Speed: 20</div>
+            <div class="theme-badge">Density: 25%</div>
+            <div class="theme-badge">Glow: Off (Performance)</div>
+            
+            <p style="margin-top: 2rem;">
+                <strong>This is perfect for:</strong><br>
+                • Tech websites and portfolios<br>
+                • Cyberpunk themed pages<br>
+                • Developer portfolios<br>
+                • Gaming websites<br>
+                • Digital art portfolios
+            </p>
+        </div>
+    </div>
+    
+    <script src="src/themes.js"></script>
+    <script src="src/matrix-rain.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('matrix-rain');
+            const matrixRain = new MatrixRain(canvas, {
+                theme: 'matrix-lite',    // Performance optimized theme
+                speed: 20,             // Comfortable speed
+                density: 25,           // Light density for background
+                fontSize: 16,           // Readable character size
+                glowIntensity: 0        // No glow for performance
+            });
+            matrixRain.start();
+            
+            console.log('Matrix Rain background demo started with optimized settings');
+        });
+    </script>
+</body>
+</html>

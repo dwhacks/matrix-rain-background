@@ -1,0 +1,210 @@
+/* Control Panel Styles */
+.controls-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 320px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transform: translateX(0px); /* Show by default */
+    transition: transform 0.3s ease-in-out;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    display: block; /* Ensure it's displayed by default */
+}
+
+.controls-panel.visible {
+    transform: translateX(0);
+}
+
+.controls-panel h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.control-group {
+    margin-bottom: 1.5rem;
+}
+
+.control-group label {
+    display: block;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.control-group select,
+.control-group input[type="range"] {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    color: #fff;
+    padding: 0.5rem;
+    font-family: inherit;
+}
+
+.control-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.5rem 1.5rem;
+    padding-right: 2.5rem;
+}
+
+.control-group select option {
+    background: #222;
+    color: #fff;
+}
+
+.control-group input[type="range"] {
+    padding: 0;
+    height: 6px;
+    cursor: pointer;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #00ff00;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.control-group input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #00ff00;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.control-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.control-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.control-actions button {
+    flex: 1;
+    background: rgba(0, 255, 0, 0.2);
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.control-actions button:hover {
+    background: rgba(0, 255, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Toggle Button */
+.toggle-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    color: #00ff00;
+}
+
+.toggle-controls:hover {
+    background: rgba(0, 255, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.toggle-controls.active {
+    background: rgba(0, 255, 0, 0.3);
+    transform: rotate(45deg);
+}
+
+/* Custom scrollbar for control panel */
+.controls-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.controls-panel::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.controls-panel::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 0, 0.5);
+    border-radius: 3px;
+}
+
+.controls-panel::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 0, 0.7);
+}
+
+/* Responsive controls */
+@media (max-width: 768px) {
+    .controls-panel {
+        width: 280px;
+        right: 10px;
+        top: 10px;
+        transform: translateX(320px);
+    }
+    
+    .toggle-controls {
+        right: 10px;
+        top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .controls-panel {
+        width: calc(100vw - 20px);
+        right: 10px;
+        left: 10px;
+        transform: translateY(-100vh);
+    }
+    
+    .controls-panel.visible {
+        transform: translateY(0);
+    }
+    
+    .toggle-controls {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .toggle-controls.active {
+        transform: translateX(-50%) rotate(45deg);
+    }
+}

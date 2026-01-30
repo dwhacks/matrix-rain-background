@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Rain Section Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        #matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .section-content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .other-section {
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        h1, h2 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .controls {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        button {
+            background: rgba(0, 255, 0, 0.2);
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: rgba(0, 255, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero section with Matrix rain background -->
+    <section class="section">
+        <canvas id="matrix-canvas"></canvas>
+        <div class="section-content">
+            <h1>Cyberpunk Landing Page</h1>
+            <p>Experience the digital rain with Matrix effect backgrounds</p>
+            <div class="controls">
+                <button onclick="changeTheme('matrix')">Classic Green</button>
+                <button onclick="changeTheme('ocean')">Ocean Blue</button>
+                <button onclick="changeTheme('sunset')">Sunset Red</button>
+                <button onclick="toggleRain()">Pause/Resume</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Regular content sections -->
+    <section class="other-section">
+        <h2>About This Demo</h2>
+        <p>This example shows how to use the Matrix rain effect as a background for a specific section of a webpage, rather than the entire page. The effect is contained within the hero section.</p>
+    </section>
+    
+    <section class="other-section">
+        <h2>Features</h2>
+        <ul>
+            <li>Section-specific background effect</li>
+            <li>Theme switching functionality</li>
+            <li>Responsive and performant</li>
+            <li>Easy to integrate into existing designs</li>
+        </ul>
+    </section>
+    
+    <!-- Include Matrix rain scripts -->
+    <script src="../src/themes.js"></script>
+    <script src="../src/matrix-rain.js"></script>
+    
+    <script>
+        // Initialize Matrix rain for the section
+        const canvas = document.getElementById('matrix-canvas');
+        const matrixRain = new MatrixRain(canvas, {
+            theme: 'matrix',
+            speed: 40,
+            density: 25,
+            showGlow: true
+        });
+        
+        matrixRain.start();
+        
+        // Control functions
+        let isPlaying = true;
+        
+        function changeTheme(themeName) {
+            matrixRain.updateConfig({ theme: themeName });
+        }
+        
+        function toggleRain() {
+            if (isPlaying) {
+                matrixRain.pause();
+            } else {
+                matrixRain.resume();
+            }
+            isPlaying = !isPlaying;
+        }
+        
+        // Handle resize for section-specific canvas
+        function resizeCanvas() {
+            const section = document.querySelector('.section');
+            canvas.width = section.offsetWidth;
+            canvas.height = section.offsetHeight;
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        
+        // Pause when not visible
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                matrixRain.pause();
+            } else {
+                if (isPlaying) matrixRain.resume();
+            }
+        });
+    </script>
+</body>
+</html>

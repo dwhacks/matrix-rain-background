@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Rain Demos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .demo-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .demo-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #00ff00;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .demo-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #00ff00;
+        }
+        
+        .demo-description {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .demo-link {
+            display: inline-block;
+            background: #00ff00;
+            color: #000;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-link:hover {
+            background: #00cc00;
+            transform: translateY(-2px);
+        }
+        
+        .matrix-rain-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-rain" class="matrix-rain-bg"></canvas>
+    
+    <div class="container">
+        <h1>Matrix Rain Background</h1>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">
+            Choose a demo to see different ways to use the Matrix rain effect
+        </p>
+        
+        <ul class="demo-list">
+            <li class="demo-item">
+                <div class="demo-title">🎛️ Full Interactive Demo</div>
+                <div class="demo-description">
+                    Complete demonstration with all controls, themes, and settings. Perfect for exploring all features and finding your preferred configuration.
+                </div>
+                <a href="index.html" class="demo-link">Try Full Demo</a>
+            </li>
+            
+            <li class="demo-item">
+                <div class="demo-title">🌌 Background Demo</div>
+                <div class="demo-description">
+                    Simple full-page background effect with optimized settings. Shows how to integrate Matrix rain as a website background without controls.
+                </div>
+                <a href="background-demo.html" class="demo-link">Try Background Demo</a>
+            </li>
+            
+            <li class="demo-item">
+                <div class="demo-title">🎯 Section Demo</div>
+                <div class="demo-description">
+                    Matrix rain used in a hero section of a webpage. Demonstrates how to use the effect in specific containers and sections.
+                </div>
+                <a href="section-demo.html" class="demo-link">Try Section Demo</a>
+            </li>
+        </ul>
+        
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p>📖 Check out <a href="USAGE.md" style="color: #00ff00; font-weight: bold;">USAGE.md</a> for detailed integration instructions</p>
+        </div>
+    </div>
+    
+    <script src="src/themes.js"></script>
+    <script src="src/matrix-rain.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('matrix-rain');
+            const matrixRain = new MatrixRain(canvas, {
+                theme: 'matrix-lite',
+                speed: 15,
+                density: 20,
+                fontSize: 14,
+                glowIntensity: 0
+            });
+            matrixRain.start();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+    "name": "matrix-rain-background",
+    "version": "1.0.0",
+    "description": "A customizable Matrix-style digital rain effect for websites",
+    "main": "src/matrix-rain.js",
+    "scripts": {
+        "start": "python3 -m http.server 8000",
+        "dev": "python3 -m http.server 8000",
+        "build": "echo 'No build step required - vanilla JS'",
+        "lint": "echo 'No linting configured'",
+        "test": "echo 'No tests configured'"
+    },
+    "keywords": [
+        "matrix",
+        "rain",
+        "animation",
+        "canvas",
+        "javascript",
+        "background",
+        "effect",
+        "cyberpunk",
+        "digital",
+        "falling-code"
+    ],
+    "author": "Matrix Rain Project",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yourusername/matrix-rain-background.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yourusername/matrix-rain-background/issues"
+    },
+    "homepage": "https://github.com/yourusername/matrix-rain-background#readme",
+    "files": [
+        "src/",
+        "css/",
+        "assets/",
+        "index.html",
+        "README.md"
+    ],
+    "engines": {
+        "node": ">=12.0.0"
+    }
+}

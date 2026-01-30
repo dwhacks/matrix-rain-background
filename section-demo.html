@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Rain - Section Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background: #000;
+            margin: 0;
+        }
+        
+        #hero-matrix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            padding-top: 200px;
+            background: rgba(0, 0, 0, 0.6);
+            height: 100%;
+            box-sizing: border-box;
+        }
+        
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #c77dff;
+            text-shadow: 0 0 20px rgba(199, 125, 255, 0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #c77dff;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(199, 125, 255, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: #e0aaff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(199, 125, 255, 0.4);
+        }
+        
+        .content {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+        
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: #667eea;
+            text-decoration: none;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: 2px solid #667eea;
+            z-index: 100;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .settings-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            z-index: 10;
+            border: 1px solid #c77dff;
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Full Demo</a>
+    
+    <header class="header">
+        <h1>Amazing Tech Product</h1>
+        <p>Experience the future of web development with cutting-edge Matrix rain effects integrated seamlessly into your design</p>
+    </header>
+    
+    <section class="hero-section">
+        <canvas id="hero-matrix"></canvas>
+        <div class="hero-content">
+            <h2>Transform Your Website</h2>
+            <p>Add stunning Matrix rain effects to any section of your webpage with just a few lines of code</p>
+            <a href="#features" class="cta-button">Explore Features</a>
+        </div>
+        
+        <div class="settings-info">
+            <strong>Hero Section Settings:</strong><br>
+            Theme: Cyber Purple<br>
+            Speed: 15 (slow)<br>
+            Density: 30%<br>
+            Glow: 20% (enabled)
+        </div>
+    </section>
+    
+    <div class="content" id="features">
+        <h3>Perfect for Any Section</h3>
+        <p>The Matrix rain effect can be applied to any container or section of your website. Above you see it used as a hero background, but it works equally well in sidebars, footers, or any creative container.</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h4>🎨 Multiple Themes</h4>
+                <p>Choose from 7 different color themes including classic green, ocean blue, cyber purple, and more.</p>
+            </div>
+            
+            <div class="feature">
+                <h4>⚡ Performance Optimized</h4>
+                <p>Special 'matrix-lite' theme provides excellent performance even on low-end devices with no glow effects.</p>
+            </div>
+            
+            <div class="feature">
+                <h4>📱 Fully Responsive</h4>
+                <p>Automatically adapts to container resizing and works perfectly on all devices and screen sizes.</p>
+            </div>
+            
+            <div class="feature">
+                <h4>🎛️ Easy Configuration</h4>
+                <p>Simple JavaScript API lets you control speed, density, character size, themes, and effects.</p>
+            </div>
+            
+            <div class="feature">
+                <h4>🔧 Lightweight</h4>
+                <p>No dependencies, just pure JavaScript and HTML5 Canvas. Minimal impact on page load time.</p>
+            </div>
+            
+            <div class="feature">
+                <h4>🌟 Visual Effects</h4>
+                <p>Optional glow effects, trail fading, and natural movement patterns for realistic digital rain.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 Matrix Rain Background Demo. See <a href="index.html" style="color: #c77dff;">full demo</a> for interactive controls.</p>
+    </footer>
+    
+    <script src="src/themes.js"></script>
+    <script src="src/matrix-rain.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('hero-matrix');
+            const matrixRain = new MatrixRain(canvas, {
+                theme: 'cyber',          // Cyber purple theme
+                speed: 15,              // Slower for section background
+                density: 30,             // Medium density
+                fontSize: 14,           // Smaller for section
+                glowIntensity: 20        // Some glow for visual appeal
+            });
+            
+            // Important: Set canvas to fill parent container, not whole window
+            function resizeCanvas() {
+                const container = canvas.parentElement;
+                canvas.width = container.offsetWidth;
+                canvas.height = container.offsetHeight;
+                matrixRain.startDropsAtTarget(); // Recalculate for new size
+            }
+            
+            // Set initial size
+            resizeCanvas();
+            matrixRain.start();
+            
+            // Handle resizing
+            window.addEventListener('resize', resizeCanvas);
+            
+            console.log('Matrix Rain section demo started with cyber theme settings');
+        });
+    </script>
+</body>
+</html>

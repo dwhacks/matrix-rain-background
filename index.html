@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Rain Background - Final Version</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/controls.css">
+</head>
+<body>
+    <div class="container">
+        <canvas id="matrix-rain"></canvas>
+        <div class="content">
+            <h1>Matrix Rain Background</h1>
+            <p>A customizable Matrix-style digital rain effect with perfect density control and natural movement</p>
+            <div class="demo-buttons">
+                <button id="toggle-rain">Pause Rain</button>
+                <button id="random-theme">Random Theme</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls-panel" id="controls">
+        <h3>Matrix Rain Controls</h3>
+        
+        <div class="control-group">
+            <label for="theme-select">Theme</label>
+            <select id="theme-select">
+                <option value="matrix">Classic Green</option>
+                <option value="ocean">Ocean Blue</option>
+                <option value="sunset">Sunset Red</option>
+                <option value="cyber">Cyber Purple</option>
+                <option value="amber">Amber Glow</option>
+                <option value="mono">Monochrome</option>
+                <option value="matrix-lite" selected>Matrix Lite (Performance)</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="speed-slider">Speed: <span id="speed-value">20</span> (slower → faster)</label>
+            <input type="range" id="speed-slider" min="1" max="30" value="20">
+        </div>
+
+        <div class="control-group">
+            <label for="density-slider">Density: <span id="density-value">33</span>% (fewer drops → more drops)</label>
+            <input type="range" id="density-slider" min="10" max="100" value="33">
+        </div>
+
+        <div class="control-group">
+            <label for="size-slider">Character Size: <span id="size-value">14</span>px</label>
+            <input type="range" id="size-slider" min="10" max="30" value="14">
+        </div>
+
+        <div class="control-group">
+            <label for="trail-slider">Trail Length: <span id="trail-value">8</span> (short → long)</label>
+            <input type="range" id="trail-slider" min="1" max="20" value="8">
+        </div>
+
+        <div class="control-group">
+            <label for="glow-slider">Glow Intensity: <span id="glow-value">0</span> (none → intense)</label>
+            <input type="range" id="glow-slider" min="0" max="100" value="0">
+        </div>
+
+        <div class="control-actions">
+            <button id="reset-settings">Reset to Default</button>
+            <button id="export-config">Export Config</button>
+        </div>
+    </div>
+    
+    <button class="toggle-controls" id="toggle-controls">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M19 12l-5 5L12 5z"/>
+        </svg>
+    </button>
+
+    <script src="src/themes.js"></script>
+    <script src="src/matrix-rain.js"></script>
+    <script src="src/controls.js"></script>
+</body>
+</html>
