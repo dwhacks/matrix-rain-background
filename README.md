@@ -8,9 +8,10 @@ A customizable Matrix-style digital rain effect built with vanilla JavaScript an
 
 ## 🌟 Live Demos
 
-- **[Full Interactive Demo](https://yourusername.github.io/matrix-rain-background/)** - Complete demo with controls
-- **[Background Demo](https://yourusername.github.io/matrix-rain-background/background-demo.html)** - Simple full-page background effect  
-- **[Section Demo](https://yourusername.github.io/matrix-rain-background/section-demo.html)** - Matrix rain in a hero section
+- **[Full Interactive Demo](https://dwhacks.github.io/matrix-rain-background/)** - Complete demo with controls
+- **[Background Demo](https://dwhacks.github.io/matrix-rain-background/background-demo.html)** - Simple full-page background effect  
+- **[Section Demo](https://dwhacks.github.io/matrix-rain-background/section-demo.html)** - Matrix rain in a hero section
+- **[Demo Index](https://dwhacks.github.io/matrix-rain-background/demos.html)** - Overview of all demos
 
 ## 🚀 Quick Start
 
